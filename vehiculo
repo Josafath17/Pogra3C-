@@ -1,0 +1,98 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Estacionamiento
+{
+    public partial class Frm : Form
+    {
+        Vehiculo myVehiculo = new Vehiculo();
+        List<Vehiculo> listaVehiculos = new List<Vehiculo>();
+
+
+        public Frm()
+        {
+            InitializeComponent();
+        }
+
+        private void Frm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void BtnAlmacenar_Click(object sender, EventArgs e)
+        {
+            Vehiculo myVehiculo = new Vehiculo();
+            myVehiculo.VehiculoS = TxtVehiculo.Text;
+            myVehiculo.Modelo= TxtModelo.Text;
+            myVehiculo.Placa = Convert.ToInt32(TxtPlaca.Text);
+            myVehiculo.Color = TxtColor.Text;
+            listaVehiculos.Add(myVehiculo);
+            MessageBox.Show("Se Registro el Vehiculo correctamente"+ myVehiculo);
+
+
+
+
+
+
+
+        }
+
+        private void TxtBuscarVehiculo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnBuscarVeiculo_Click(object sender, EventArgs e)
+        {
+            foreach (Vehiculo v in listaVehiculos)
+            {
+                MessageBox.Show( "Numero de placa={0}",v);
+            }
+
+            for (int i = 0; i < listaVehiculos.Count; i++)
+            {
+                Console.WriteLine("Numero de placa#{0} = {1}", i, listaVehiculos[i]);
+            }
+
+
+        }
+
+        private void TxtNuevo_Click(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            TxtVehiculo.Clear();
+            TxtPlaca.Clear();
+            TxtModelo.Clear();
+            TxtColor.Clear();
+            TxtBuscarVehiculo.Clear();
+        }
+    }
+}
